@@ -8,24 +8,17 @@ export default class Home extends Component {
     theNumber: 1
   };
 
-  onPress = () => {
-    this.props.navigation.navigate('CaptureFrontAndBack');
-  };
-
-  incrementNumber = () => {
-    this.setState({theNumber: this.state.theNumber + 1})
+  onPress = (screen) => {
+    this.props.navigation.navigate(screen);
   };
 
   render() {
     return <View>
-      <TouchableHighlight style={styles.button} onPress={this.onPress}>
+      <TouchableHighlight style={styles.button} onPress={() => this.onPress('CaptureFrontAndBack')}>
         <Text>Capture Image</Text>
       </TouchableHighlight>
       <TouchableHighlight style={styles.button}>
         <Text>View Image</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style={styles.button} onPress={this.incrementNumber}>
-        <Text>{this.state.theNumber}</Text>
       </TouchableHighlight>
     </View>;
   }
